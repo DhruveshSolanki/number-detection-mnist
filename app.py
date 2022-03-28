@@ -39,5 +39,6 @@ def predict_model():
         out = model.predict(image_array)
     return render_template('result.html', img_data=encoded_img_data.decode('utf-8'), ans=np.argmax(out, axis=1))
 
-
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
+    app.run(debug=True)
