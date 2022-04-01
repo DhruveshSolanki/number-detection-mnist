@@ -37,7 +37,7 @@ def predict_model():
     with graph.as_default():
         model = init()
         out = model.predict(image_array)
-    return render_template('result.html', img_data=encoded_img_data.decode('utf-8'), ans=np.argmax(out, axis=1))
+    return render_template('result.html', img_data=encoded_img_data.decode('utf-8'), ans=int(np.argmax(out, axis=1)))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
